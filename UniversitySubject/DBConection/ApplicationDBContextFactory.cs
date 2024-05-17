@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UniversitySubject.Infrastructure.DBConection
 {
-     class ApplicationDBContextFactory
+     class ApplicationDBContextFactory : IDesignTimeDbContextFactory<ApplicationDBContext>
     {
         public ApplicationDBContext CreateDbContext(string[] args)
         {
@@ -21,7 +22,7 @@ namespace UniversitySubject.Infrastructure.DBConection
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDBContext>();
 
-            var connectionString = configuration.GetConnectionString("ConnectionStrings");
+            var connectionString = configuration.GetConnectionString("LocalDb");
 
             optionsBuilder.UseSqlServer(connectionString);
 

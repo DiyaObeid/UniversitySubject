@@ -13,8 +13,6 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 
-
-
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")));
 

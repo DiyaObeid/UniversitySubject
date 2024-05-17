@@ -12,14 +12,12 @@ namespace UniversitySubject.Infrastructure.DBConection
     {
         public DbSet<Subject> Subjects { get; set; }
 
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) {
-        
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> contextOptions)
+            : base(contextOptions)
+        {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+
 
 
     }

@@ -12,7 +12,7 @@ namespace UniversitySubject.Services
 
         public Task<bool> AddSubject(string subject);
         public Task<bool> DeleteSubject(Guid subjectId);
-        public Task<bool> UpdateSubject(Update Subject);
+        //public Task<bool> UpdateSubject(Update Subject);
 
 
 
