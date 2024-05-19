@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using UniversitySubject.Core.IRepositories;
 using UniversitySubject.Infrastructure.DBConection;
+using UniversitySubject.Services.Contract;
+using UniversitySubject.Services.Implemintation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +18,8 @@ var app = builder.Build();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")));
-
+builder.Services.AddScoped<ISubjectsServices, SubjectsServices>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepo<>));
 
 
 
